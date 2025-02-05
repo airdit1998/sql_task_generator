@@ -1,4 +1,4 @@
-from random import randint
+
 from generators.random_generator import RandomDataGenerator
 from abc import ABC, abstractmethod
 
