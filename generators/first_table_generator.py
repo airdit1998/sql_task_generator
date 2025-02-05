@@ -19,7 +19,7 @@ class FirstTableGenerator(TableParameterGenerator):
         df['index_col'] = self.table_index
 
         for i in range(self.length):
-            df['col' + str(i) + '_ft'] = self._get_random_data()
+            df['col_' + str(i) + '_ft'] = self._get_random_data()
 
         # Empty string for merging dataframes
         df['ms'] = ''
@@ -33,7 +33,7 @@ class FirstTableGenerator(TableParameterGenerator):
         """
 
         random_data_type = choice(self.supported_list)
-        random_data = [self.random_generator.get_random_data(random_data_type) for _ in range(self.width)]
+        random_data = [self.random_generator.get_random_data(random_data_type) for _ in range(self.length)]
 
         if random_data_type == 'name':
             # Need to exclude generated name for pretty dataframe
