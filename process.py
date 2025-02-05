@@ -55,10 +55,10 @@ def main():
         exit_dataframe = concat([first_table_dataframe, second_table_dataframe], axis=1)
 
         if custom_df_name:
-            exit_dataframe.to_excel(custom_df_name + '.xlsx')
+            exit_dataframe.to_excel(custom_df_name + '.xlsx', index=False)
         else:
             custom_df_name = ''.join(choice(string.ascii_uppercase + string.digits) for _ in range(10))
-            exit_dataframe.to_excel(custom_df_name + '.xlsx')
+            exit_dataframe.to_excel(custom_df_name + '.xlsx', index=False)
 
     except TypeError as ex:
         raise TypeError("Mismatch type for talbe")
