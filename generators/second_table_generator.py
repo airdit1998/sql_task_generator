@@ -11,10 +11,10 @@ class SecondTableGenerator(TableParameterGenerator):
         super().__init__(length=length, width=width)
         self.table_index = table_index
 
-    def generate_table(self):
+    def generate_table(self) -> DataFrame:
         """
-
-        :return:
+        Method generate dataframe from data from random_generator by given length and width
+        :return: DataFrame
         """
         self._generate_random_table_length()
         self._generate_random_table_width()
@@ -31,7 +31,9 @@ class SecondTableGenerator(TableParameterGenerator):
 
     def _generate_random_table_length(self) -> None:
         """
-        Method generate length for second table
+        Method generate length for second table by coefficient
+        if table length is too low, you can only raise table length
+        if table length > 4, you can get table length higher or lower for then given length
         :return: int
         """
         if self.length <= 4:
@@ -57,7 +59,7 @@ class SecondTableGenerator(TableParameterGenerator):
 
     def _generate_random_table_width(self) -> None:
         """
-        Method generate width for second table
+        Method generate width for second table by coefficient
         :return: int
         """
 
@@ -68,10 +70,10 @@ class SecondTableGenerator(TableParameterGenerator):
         if start_ != stop_:  # Exclude range method exception
             self.width = choice([x for x in range(start_, stop_, step_)])
 
-    def _get_random_data(self):
+    def _get_random_data(self) -> list[any]:
         """
-        :TODO add description
-        :return:
+        Method returns some random data from random_generator by random choice of supported generator data
+        :return: list[parameter]
         """
 
         random_data_type = choice(self.supported_list)
@@ -85,7 +87,8 @@ class SecondTableGenerator(TableParameterGenerator):
 
     def _generate_new_index(self) -> list[int]:
         """
-        :return:
+        Method generate random index for hard join first table ob second table
+        :return: list[int]
         """
         df_index = [choice(self.table_index) for _ in range(self.length)]
 

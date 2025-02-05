@@ -10,9 +10,10 @@ class FirstTableGenerator(TableParameterGenerator):
         super().__init__(length=length, width=width)
         self.table_index = table_index
 
-    def generate_table(self):
+    def generate_table(self) -> DataFrame:
         """
-        Generate random dataset for given length and width
+        Method generate dataframe from data from random_generator by given length and width
+        :return: DataFrame
         """
         df = DataFrame()
         #add index
@@ -26,10 +27,10 @@ class FirstTableGenerator(TableParameterGenerator):
 
         return df
 
-    def _get_random_data(self):
+    def _get_random_data(self) -> list[any]:
         """
-        :TODO add description
-        :return:
+        Method returns some random data from random_generator by random choice of supported generator data
+        :return: list[parameter]
         """
 
         random_data_type = choice(self.supported_list)

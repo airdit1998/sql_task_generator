@@ -36,6 +36,7 @@ def main():
             width=input_width,
             table_index=table_index,
         ).generate_table()
+
         second_table_dataframe = SecondTableGenerator(
             length=input_length,
             width=input_width,
